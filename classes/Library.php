@@ -46,8 +46,14 @@ class Library extends Connection{
         $sql = "UPDATE books SET name='$name',genre='$genre',author='$author' WHERE id = '$id'";
         $result = $this->conn->query($sql);
 
-        if($result){
-            header('location: ../views/dash-books.php');
+        if($result->num_rows>0){ 
+            while($rows = $result->fetch_assoc()){
+                $container[] = $rows; 
+                header('location: ../views/dash-books.php');
+            }
+            return $container;
+        }else{
+            return FALSE;
         }
 
     }
