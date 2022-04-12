@@ -1,5 +1,9 @@
 <?php
+include '../classes/Library.php';
+$obj = new Librery;
 $id = $_GET['id'];
+
+$book = $obj->show_book($id);
 ?>
 
 <!doctype html>
@@ -15,24 +19,6 @@ $id = $_GET['id'];
 
   </head>
   <body>
-      <!-- <div class="card w-50 mt-5 mx-auto">
-        <div class="card-header text-center text-primary">
-          UPDATE
-        </div>
-        <div class="card-body">
-          <form action="../actions/update-item.php" method="post">
-            <div class="form-group mb-4">
-              <label for="name">Name</label>
-              <input type="text" name="name" id="" class="form-control">
-              <label for="genre">Genre</label>
-              <input type="text" name="genre" id="" class="form-control">
-              <label for="author">Author</label>
-              <input type="text" name="author" id="" class="form-control">
-            </div>
-            <button type="submit" name="update" class="btn btn-primary">UPDATE</button>
-          </form>
-        </div>
-      </div> -->
       <section class="p-5 mt-5>
         <div class="container">
             <div class="card w-50 mx-auto" shadow>
@@ -43,11 +29,11 @@ $id = $_GET['id'];
                     <form action="../actions/update-item.php" method="post">
                         <div class="input-group">
                             <input type="hidden" name="item-id" value="<?php echo $id?>">
-                            <input type="text" name="book-name" placeholder="Book name" id="" class="form-control">
-                            <input type="text" name="book-genre" placeholder="Book Genre"id="" class="form-control">
+                            <input type="text" name="book-name" value="<?php echo $book['name']?>" placeholder="Book name" id="" class="form-control">
+                            <input type="text" name="book-genre" value="<?php echo $book['genre']?>" placeholder="Book Genre"id="" class="form-control">
                         </div>
                         <div class="input-group mt-3">
-                            <input type="text" name="book-author" placeholder="Book Author"id="" class="form-control">
+                            <input type="text" name="book-author" value="<?php echo $book['author']?>" placeholder="Book Author"id="" class="form-control">
                             <button type="submit" class="btn btn-success">Save</button>
                         </div>
                     </form>
