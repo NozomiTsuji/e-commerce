@@ -42,18 +42,12 @@ class Library extends Connection{
     //1.create UI for update: (HTML/BOOTSTRAP)
     //2.complete update_book method
     //3. create Update action
-    public function update_book($id){
+    public function update_book($id,$name,$genre,$author){
         $sql = "UPDATE books SET name='$name',genre='$genre',author='$author' WHERE id = '$id'";
         $result = $this->conn->query($sql);
 
-        if($result->num_rows>0){ 
-            while($rows = $result->fetch_assoc()){
-                $container[] = $rows; 
-                header('location: ../views/dash-books.php');
-            }
-            return $container;
-        }else{
-            return FALSE;
+        if($result){
+            header('location: ../views/dash-books.php');
         }
 
     }

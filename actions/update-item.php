@@ -3,13 +3,12 @@
       $obj = new Library;
 
       if(isset($_POST['update'])){
-        $name = $_POST['name'];
-        $genre = $_POST['genre'];
-        $author = $_POST['author'];
+        $name = $_POST['book-name'];
+        $genre = $_POST['book-genre'];
+        $author = $_POST['book-author'];
+        $item_id = $_POST['item-id'];
 
-        $item_id = $_GET['id'];
-
-        $obj->update_book($item_id); 
+        $obj->update_book($item_id,$name,$genre,$author); 
       }
       
 ?>
