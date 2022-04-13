@@ -1,6 +1,9 @@
 <?php
-
+include '../classes/Library.php';
+$obj = new Library;
 $id = $_GET['id'];
+
+$book = $obj->show_book($id);
 
 ?>
 
@@ -27,11 +30,11 @@ $id = $_GET['id'];
                     <form action="../actions/update-item.php" method="post">
                         <div class="input-group">
                             <input type="hidden" name="item-id" value="<?php echo $id?>">
-                            <input type="text" name="book-name" placeholder="Book name" id="" class="form-control">
-                            <input type="text" name="book-genre" placeholder="Book Genre"id="" class="form-control">
+                            <input type="text" value="<?php echo $book['name']?>" name="book-name" placeholder="Book name" id="" class="form-control">
+                            <input type="text" value="<?php echo $book['genre']?>" name="book-genre" placeholder="Book Genre"id="" class="form-control">
                         </div>
                         <div class="input-group mt-3">
-                            <input type="text" name="book-author" placeholder="Book Author"id="" class="form-control">
+                            <input type="text" value="<?php echo $book['author']?>" name="book-author" placeholder="Book Author"id="" class="form-control">
                             <button type="submit" class="btn btn-success">Save</button>
                         </div>
                     </form>
