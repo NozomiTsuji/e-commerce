@@ -1,9 +1,7 @@
 <?php
-include '../classes/Library.php';
-$obj = new Librery;
+
 $id = $_GET['id'];
 
-$book = $obj->show_book($id);
 ?>
 
 <!doctype html>
@@ -19,7 +17,7 @@ $book = $obj->show_book($id);
 
   </head>
   <body>
-      <section class="p-5 mt-5>
+    <section class="p-5 mt-5>
         <div class="container">
             <div class="card w-50 mx-auto" shadow>
                 <div class="card-header bg-dark p-4">
@@ -29,11 +27,11 @@ $book = $obj->show_book($id);
                     <form action="../actions/update-item.php" method="post">
                         <div class="input-group">
                             <input type="hidden" name="item-id" value="<?php echo $id?>">
-                            <input type="text" name="book-name" value="<?php echo $book['name']?>" placeholder="Book name" id="" class="form-control">
-                            <input type="text" name="book-genre" value="<?php echo $book['genre']?>" placeholder="Book Genre"id="" class="form-control">
+                            <input type="text" name="book-name" placeholder="Book name" id="" class="form-control">
+                            <input type="text" name="book-genre" placeholder="Book Genre"id="" class="form-control">
                         </div>
                         <div class="input-group mt-3">
-                            <input type="text" name="book-author" value="<?php echo $book['author']?>" placeholder="Book Author"id="" class="form-control">
+                            <input type="text" name="book-author" placeholder="Book Author"id="" class="form-control">
                             <button type="submit" class="btn btn-success">Save</button>
                         </div>
                     </form>

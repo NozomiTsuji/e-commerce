@@ -52,14 +52,14 @@ class Library extends Connection{
 
     }
 
-    public function show_book($id){
-        $sql = "SELECT * FROM books WHERE id = '$id'";
-        $result = $this->conn->query($sql);
+    // public function show_book($id){
+    //     $sql = "SELECT * FROM books WHERE id = '$id'";
+    //     $result = $this->conn->query($sql);
 
-        if($result){
-            return $result->fetch_assoc();
-        }
-    }
+    //     if($result){
+    //         return $result->fetch_assoc();
+    //     }
+    // }
 
 }
 

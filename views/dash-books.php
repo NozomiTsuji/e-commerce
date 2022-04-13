@@ -1,9 +1,7 @@
 <?php
-
-$id = $_GET['id'];
-
+include '../classes/Library.php';
+$obj = new Library;
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -29,7 +27,6 @@ $id = $_GET['id'];
                 <div class="card-body">
                     <form action="../actions/item-action.php" method="post">
                         <div class="input-group">
-                            <input type="hidden" name="item-id">
                             <input type="text" name="book-name" placeholder="Book name" id="" class="form-control">
                             <input type="text" name="book-genre" placeholder="Book Genre"id="" class="form-control">
                         </div>
