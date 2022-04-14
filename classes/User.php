@@ -8,7 +8,7 @@ include 'Connection.php';
 
 class User extends Connection {
     public function store_user($fname,$lname,$contact,$username,$password,$email){
-        // $password = password_hash($password, PASSWORD_DEFAULT);
+        $password = password_hash($password, PASSWORD_DEFAULT);
         $sql = "INSERT INTO users(fname,lname,contact,username,password,email)VALUES('$fname','$lname','$contact','$username','$password','$email')";
         $result = $this->conn->query($sql);
 
@@ -49,7 +49,7 @@ class User extends Connection {
         if($result){
             header('location: ../views/create-users.php');
         }else{
-            die("ERROR: ". $this->conn->error);
+            die("ERROR: ". $this->conn->error());
         }
     }
 
@@ -59,6 +59,8 @@ class User extends Connection {
 
         if($result){
             return $result->fetch_assoc();
+        }else{
+            die("ERROR: ". $this->conn->error);
         }
     }
 }
