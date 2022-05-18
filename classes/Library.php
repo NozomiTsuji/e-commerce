@@ -11,7 +11,7 @@ class Library extends Connection{
         $result = $this->conn->query($sql);
 
         if($result){
-            header('location: ../views/dash-books.php');
+            header('location: ../views/item-list.php');
         }
 
     }

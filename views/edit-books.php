@@ -21,10 +21,10 @@ $book = $obj->show_book($id);
   </head>
   <body>
     <section class="p-5 mt-5>
-        <div class="container">
+        <div class="container" style="opacity:0.9;">
             <div class="card w-50 mx-auto" shadow>
-                <div class="card-header bg-dark p-4">
-
+                <div class="card-header bg-light p-4 text-center">
+                    Edit books
                 </div>
                 <div class="card-body">
                     <form action="../actions/update-item.php" method="post">

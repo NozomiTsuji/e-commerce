@@ -28,7 +28,7 @@ $user = $obj->show_user($id);
                 <div class="card-header bg-light p-4">
 
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="opacity:0.9;">
                     <form action="../actions/update-user.php" method="post">
                         <div class="input-group">
                             <input type="hidden" name="user-id" value="<?php echo $id?>">

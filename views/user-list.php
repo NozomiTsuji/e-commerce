@@ -17,7 +17,7 @@ $obj = new User;
 
   </head>
   <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-light">
+  <nav class="navbar navbar-expand-md navbar-dark bg-light" style="opacity:0.8">
         <div class="container-fluid">
             <a href="" class="navbar-brand">My Favorite Books</a>
             <button class="navbar-toggler float-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
@@ -40,34 +40,35 @@ $obj = new User;
         
     </nav>
       
-    <section class="p-5 mt-5>
+    <section class="mt-4 p-5">
         <div class="container">
-            <div class="card w-50 mx-auto" style="opacity:0.9;" shadow>
-                <div class="card-header bg-light p-4 text-center">
-                    create user
-                </div>
-                <div class="card-body">
-                    <form action="../actions/user-action.php" method="post">
-                        <div class="input-group">
-                            <input type="text" name="first-name" placeholder="First name" id="" class="form-control">
-                            <input type="text" name="last-name" placeholder="Last Name" id="" class="form-control">
-                        </div>
-                        <div class="input-group mt-3">
-                            <input type="text" name="contact" placeholder="Contact"id="" class="form-control">
-                        </div>
-                        <div class="input-group mt-3">
-                            <input type="text" name="username" placeholder="Username"id="" class="form-control">
-                        </div>
-                        <div class="input-group mt-3">
-                            <input type="password" name="password" placeholder="Password"id="" class="form-control">
-                        </div>
-                        <div class="input-group mt-3">
-                            <input type="text" name="email" placeholder="Email"id="" class="form-control">
-                            <button type="submit" class="btn btn-success">Create</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            <?php if($obj->show_users() == !FALSE):?>
+                <ul class="list-group">
+                    <?php foreach($obj->show_users() as $user):?>
+                        <li class="list-group-item">
+                            <div class="row">
+                            <div class="col">
+                                <?php echo $user['fname']?>
+                            </div>
+                            <div class="col">
+                                <?php echo $user['lname']?>
+                            </div>
+                            <div class="col">
+                                <?php echo $user['contact']?>
+                            </div>
+                            <div class="col">
+                                <?php echo $user['username']?>
+                            </div>
+                            </div>
+                            <!-- <?php echo $user['password']?> -->
+                            <?php echo $user['email']?>
+
+                            <a href="../actions/delete-user.php?id=<?php echo $user['id']?>" class="text-danger float-end mx-1"><i class="fas fa-trash"></i></a>
+                            <a href="edit-users.php?id=<?php echo $user['id']?>" class="text-info float-end mx-1"><i class="fas fa-edit"></i></a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>   
+            <?php endif; ?>
         </div>
     </section>
     <!-- Bootstrap JavaScript Libraries -->

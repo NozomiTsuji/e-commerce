@@ -17,26 +17,19 @@ $obj = new Library;
 
   </head>
   <body>
-      
-    <section class="p-5 mt-5>
-        <div class="container">
-            <div class="card w-50 mx-auto" shadow>
-                <div class="card-header bg-dark p-4">
-
-                </div>
-                <div class="card-body">
-                    <form action="../actions/item-action.php" method="post">
-                        <div class="input-group">
-                            <input type="text" name="book-name" placeholder="Book name" id="" class="form-control">
-                            <input type="text" name="book-genre" placeholder="Book Genre"id="" class="form-control">
-                        </div>
-                        <div class="input-group mt-3">
-                            <input type="text" name="book-author" placeholder="Book Author"id="" class="form-control">
-                            <button type="submit" class="btn btn-success">Save</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <section class="mt-5 p-5">
+        <div class="container" style="opacity:0.9;">
+            <?php if($obj->show_books() == !FALSE)://if show_books has a data?>
+                <ul class="list-group">
+                    <?php foreach($obj->show_books() as $book):?>
+                        <li class="list-group-item">
+                            <?php echo $book['name']?>
+                            <a href="../actions/delete-item.php?id=<?php echo $book['id']?>" class="text-danger float-end mx-1"><i class="fas fa-trash"></i></a>
+                            <a href="edit-books.php?id=<?php echo $book['id']?>" class="text-info float-end mx-1"><i class="fas fa-edit"></i></a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>   
+            <?php endif; ?>
         </div>
     </section>
     <!-- Bootstrap JavaScript Libraries -->

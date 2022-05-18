@@ -13,7 +13,7 @@ class User extends Connection {
         $result = $this->conn->query($sql);
 
         if($result){
-            header('location: ../views/create-users.php');
+            header('location: ../views/user-list.php');
         }else{
             die("ERROR: ". $this->conn->error);
         }
