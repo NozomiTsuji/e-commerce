@@ -17,13 +17,44 @@ $obj = new Library;
 
   </head>
   <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-success">
+        <div class="container-fluid">
+            <a href="../views/create-users.php" class="navbar-brand">My Favorite Books</a>
+            <button class="navbar-toggler float-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse justify-content-stretch" id="navbar">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../views/dash-books.php">Register books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../views/item-list.php">Item list</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../views/user-list.php">User list</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <section class="mt-5 p-5">
         <div class="container" style="opacity:0.9;">
             <?php if($obj->show_books() == !FALSE)://if show_books has a data?>
                 <ul class="list-group">
                     <?php foreach($obj->show_books() as $book):?>
                         <li class="list-group-item">
-                            <?php echo $book['name']?>
+                            <div class="row">
+                                <div class="col">
+                                    <?php echo $book['name']?>
+                                </div>
+                                <div class="col">
+                                    <?php echo $book['genre']?>
+                                </div>
+                                <div class="col">
+                                    <?php echo $book['author']?>
+                                </div>
+                            </div>
                             <a href="../actions/delete-item.php?id=<?php echo $book['id']?>" class="text-danger float-end mx-1"><i class="fas fa-trash"></i></a>
                             <a href="edit-books.php?id=<?php echo $book['id']?>" class="text-info float-end mx-1"><i class="fas fa-edit"></i></a>
                         </li>

@@ -21,6 +21,27 @@ $user = $obj->show_user($id);
 
   </head>
   <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-success">
+        <div class="container-fluid">
+            <a href="../views/create-users.php" class="navbar-brand">My Favorite Books</a>
+            <button class="navbar-toggler float-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse justify-content-stretch" id="navbar">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../views/dash-books.php">Register books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../views/item-list.php">Item list</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../views/user-list.php">User list</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
       
     <section class="p-5 mt-5>
         <div class="container">

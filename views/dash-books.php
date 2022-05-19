@@ -17,17 +17,40 @@ $obj = new Library;
 
   </head>
   <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-success">
+        <div class="container-fluid">
+            <a href="../views/create-users.php" class="navbar-brand">My Favorite Books</a>
+            <button class="navbar-toggler float-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse justify-content-stretch" id="navbar">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../views/dash-books.php">Register books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../views/item-list.php">Item list</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../views/user-list.php">User list</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
       
     <section class="p-5 mt-5>
         <div class="container">
             <div class="card w-50 mx-auto" shadow>
-                <div class="card-header bg-dark p-4">
-
+                <div class="card-header bg-light p-4 text-center">
+                    Register Book
                 </div>
                 <div class="card-body">
                     <form action="../actions/item-action.php" method="post">
                         <div class="input-group">
                             <input type="text" name="book-name" placeholder="Book name" id="" class="form-control">
+                        </div>
+                        <div class="input-group mt-3">
                             <input type="text" name="book-genre" placeholder="Book Genre"id="" class="form-control">
                         </div>
                         <div class="input-group mt-3">
